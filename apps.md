@@ -1,0 +1,12 @@
+# List of applications to install
+- Firefox
+- Steam
+- Discord
+- VSCode
+- Obsidian
+- MakeMKV
+- Handbreak
+- qBittorrent
+- Spotify
+- Ultimaker Cura
+- Proton VPN
