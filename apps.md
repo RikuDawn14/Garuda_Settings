@@ -1,5 +1,8 @@
 # List of applications to install
 - Firefox
+    - Bitwarden
+    - Wappalyzer
+    - uBlock
 - Steam
 - Discord
 - VSCode
