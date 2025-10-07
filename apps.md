@@ -1,15 +1,16 @@
 # List of applications to install
-- Firefox
+- Firefox `sudo pacman -S firefox`
     - Bitwarden
     - Wappalyzer
     - uBlock
-- Steam
-- Discord
-- VSCode
-- Obsidian
+- Steam `sudo pacman -S steam`
+- Discord `sudo pacman -S discord`
+- VSCode `sudo pacman -S visual-studio-code-bin`
+- Obsidian `sudo pacman -S obsidian`
 - MakeMKV
-- Handbreak
-- qBittorrent
-- Spotify
+- Handbreak `sudo pacman -S handbrake`
+- qBittorrent `sudo pacman -S qbittorrent`
+- Spotify 
 - Ultimaker Cura
-- Proton VPN
+- Proton VPN (Follow 'ProtonVPN_Setup.md')
+- Vim `sudo pacman -S vim`
