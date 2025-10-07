@@ -1,3 +1,4 @@
 # General clean up
-- sudo pacman -Rscp micro
-- sudo pacman -Rscp firedragon-catppuccin
+- sudo pacman -Rsc micro
+- sudo pacman -Rsc firedragon-catppuccin
+- sudo pacman _rsc kate
