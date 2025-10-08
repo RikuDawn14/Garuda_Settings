@@ -7,10 +7,10 @@
 - Discord `sudo pacman -S discord`
 - VSCode `sudo pacman -S visual-studio-code-bin`
 - Obsidian `sudo pacman -S obsidian`
-- MakeMKV
+- MakeMKV `sudo pacman -S makemkv`
 - Handbreak `sudo pacman -S handbrake`
 - qBittorrent `sudo pacman -S qbittorrent`
 - Spotify 
 - Ultimaker Cura
-- Proton VPN (Follow 'ProtonVPN_Setup.md')
+- Proton VPN (Follow [ProtonVPN_Setup.md](https://github.com/RikuDawn14/Garuda_Settings/blob/main/ProtonVPN_Setup.md))
 - Vim `sudo pacman -S vim`
