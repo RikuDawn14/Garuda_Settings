@@ -9,3 +9,6 @@
 ## dot_files
   - All dot files needed to get configs set.
 ---
+
+## shell scripts
+  - Single script to delete and add packages, as well as download wallpapers and dot files.
