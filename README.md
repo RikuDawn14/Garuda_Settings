@@ -12,6 +12,3 @@
 
 ## shell scripts
   - Single script to delete and add packages, as well as download wallpapers and dot files.
-
-  - t16KoP66XMKSKmD0n5lA8frvfwU0iMrUtQmq3mgIBEE=
-  - DWATAybQH9EQyuLJcJmmazPa/MbUnvJo74Z4JDgxN0w=
