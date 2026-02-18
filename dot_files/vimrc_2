@@ -1,0 +1,113 @@
+" ============================================================
+"  POWER USER VIM CONFIG — SYSADMIN / CONFIG / YAML FOCUSED
+" ============================================================
+
+" -----------------------------
+" General UI / Comfort
+" -----------------------------
+set number                  " Absolute line numbers
+set relativenumber          " Relative numbers for fast movement
+set cursorline              " Highlight current line
+set showcmd                 " Show partial commands
+set wildmenu                " Better command-line completion
+set scrolloff=8             " Keep 8 lines visible when scrolling
+set nowrap                  " Don't wrap long lines (logs/configs)
+
+syntax on
+filetype plugin indent on
+
+" -----------------------------
+" Search Behavior
+" -----------------------------
+set incsearch               " Show matches while typing
+set hlsearch                " Highlight search results
+set ignorecase              " Case insensitive search...
+set smartcase               " ...unless uppercase used
+
+" Clear search highlight with <leader>h
+nnoremap <leader>h :nohlsearch<CR>
+
+" -----------------------------
+" Indentation Defaults
+" -----------------------------
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab               " Use spaces (safer for configs)
+set autoindent
+set smartindent
+
+" -----------------------------
+" YAML-Specific Settings
+" -----------------------------
+autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd FileType yaml setlocal indentkeys-=0#     " Prevent weird comment indent
+
+" YAML hates tabs — make them visible
+set list
+set listchars=tab:>-,trail:·,space:·
+
+" -----------------------------
+" Faster Movement
+" -----------------------------
+set ttyfast
+set lazyredraw
+
+" Easier split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" -----------------------------
+" System Clipboard (if available)
+" -----------------------------
+set clipboard=unnamedplus   " Use system clipboard
+
+" -----------------------------
+" Safer File Handling
+" -----------------------------
+set hidden                  " Allow switching buffers without saving
+set nobackup
+set nowritebackup
+set updatetime=300
+
+" Automatically reload file if changed on disk (great for logs)
+set autoread
+autocmd FocusGained,BufEnter * checktime
+
+" -----------------------------
+" Quick Sudo Write
+" -----------------------------
+cmap w!! w !sudo tee % > /dev/null
+
+" -----------------------------
+" Toggle Paste Mode (Prevents YAML paste disasters)
+" -----------------------------
+set pastetoggle=<F2>
+
+" ============================================================
+"  YAML VALIDATION SHORTCUT
+" ============================================================
+
+" Requires: yamllint (recommended)
+" Install with: sudo pacman -S yamllint
+
+" Run yamllint on current file
+command! YamlLint execute "!yamllint %"
+
+" Map <leader>y to validate YAML quickly
+nnoremap <leader>y :YamlLint<CR>
+
+" Alternative simple syntax check using Python (fallback):
+" nnoremap <leader>y :!python -c 'import yaml,sys; yaml.safe_load(open("%"))'<CR>
+"
+" Requires:
+"   pip install pyyaml
+"
+" If YAML is valid → no output
+" If invalid → shows error with line number
+"
+" ============================================================
+"  END CONFIG
+" ============================================================
