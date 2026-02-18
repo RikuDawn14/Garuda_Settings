@@ -1,13 +1,11 @@
 #!/bin/bash
-sudo pacman -S qemu-full libvirt virt-manager dnsmasq bridge-utils edk2-ovmf iptables-nft
-sudo systemctl enable libvirtd.service
-sudo systemctl start libvirtd.service
-sudo systemctl status libvirtd.service
-sudo usermod -aG libvirt,kvm rikudawn
-reboot
-lscpu | grep virtualization
-lscpu | grep Virtualization
+sudo pacman -S --needed qemu-full libvirt virt-manager dnsmasq edk2-ovmf iptables-nft
+sudo systemctl enable --now libvirtd.service
+sudo usermod -aG libvirt,kvm $USER
+lscpu | grep -i virtualization
 lsmod | grep kvm
 sudo virsh net-start default
 sudo virsh net-autostart default
 sudo virsh net-list --all
+sudo systemctl enable virtlogd.socket
+sudo systemctl enable virtlockd.socket
