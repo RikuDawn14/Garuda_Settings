@@ -5,6 +5,7 @@
 " -----------------------------
 " General UI / Comfort
 " -----------------------------
+let mapleader = " "         " Sets leader key to <space>
 set number                  " Absolute line numbers
 set relativenumber          " Relative numbers for fast movement
 set cursorline              " Highlight current line
@@ -45,14 +46,18 @@ autocmd FileType yaml setlocal indentkeys-=0#     " Prevent weird comment indent
 
 " YAML hates tabs — make them visible
 set list
-set listchars=tab:>-,trail:·,space:·
+set listchars=tab:>-
+
+" Highlight trailing whitespace (critical for YAML & clean diffs)
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
+" Toggle whitespace visibility
+nnoremap <leader>l :set list!<CR>
 
 " -----------------------------
 " Faster Movement
 " -----------------------------
-set ttyfast
-set lazyredraw
-
 " Easier split navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -62,7 +67,9 @@ nnoremap <C-l> <C-w>l
 " -----------------------------
 " System Clipboard (if available)
 " -----------------------------
-set clipboard=unnamedplus   " Use system clipboard
+if has('clipboard')
+  set clipboard=unnamedplus   " Use system clipboard
+endif
 
 " -----------------------------
 " Safer File Handling
@@ -79,7 +86,7 @@ autocmd FocusGained,BufEnter * checktime
 " -----------------------------
 " Quick Sudo Write
 " -----------------------------
-cmap w!! w !sudo tee % > /dev/null
+cmap w!! execute 'write !sudo tee % >/dev/null' <bar> edit!
 
 " -----------------------------
 " Toggle Paste Mode (Prevents YAML paste disasters)
